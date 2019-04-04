@@ -1,7 +1,9 @@
 from django.shortcuts import render
 
+def play_snake(request, **kwargs):
+    pass
 
-def play_tic_tac_toe(request, **kwargs):
+def show_leaderboard(request, **kwargs):
     pass
 
 def show_settings(request, **kwargs):
