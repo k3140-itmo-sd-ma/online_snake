@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def play_tic_tac_toe(request, **kwargs):
+    pass
+
+def show_settings(request, **kwargs):
+    pass
