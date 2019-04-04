@@ -1,2 +1,4 @@
 tic_tac_toe/vue-tic-tac-toe
 db.sqlite3
+*/*/__pycache__/
+*/__pycache__/
