@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 def play_snake(request, **kwargs):
-    pass
+    #if kwargs.get('user'):
+    return render(request, 'snake/snake.html',)
+    #else:
+     #   redirect('login')
 
 def show_leaderboard(request, **kwargs):
     pass
