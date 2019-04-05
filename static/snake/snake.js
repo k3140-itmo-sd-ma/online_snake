@@ -3,39 +3,41 @@ var random = function (min, max) {k = Math.floor(Math.random() * (max - min) + m
 	}
 
 var newApple = function () {
-	apple = [random(0, 900 - size),random(0, 900 - size)];
+	apple = [random(0, (innerHeight - 100) - size),random(0, (innerHeight - 100) - size)];
 	}
 
 var	newB = function () {
 	sBody = [{x: 3 * size,y: 3 * size}, {x: 4 * size, y: 3 * size}, {x: 5 * size,y: 3 * size}];
 	}
 var score = 0;
+var width1 = (innerHeight - 100);
+var width1 = (innerHeight - 100);
+var corner_x = (innerWidth - (innerHeight - 100)) / 2;
+var corner_y = (innerHeight - (innerHeight - 100)) / 2;
 var gP = document.getElementById('gP'), //Достаем canvas
 	g = gP.getContext('2d'), //Получаем "контакс" (методы для рисования в canvas) //Сохраняем для удобства
 	sBody = null, //Начально тело змейки - два элемента
 	direction = 'right'
 	apple = null, //Яблоко, массив, 0 элемент - x, 1 элемнт - y
-	size = 25, newB(); newApple(); //Создаем змейку
+	size = Math.round(width1 / 20), newB(); newApple(); //Создаем змейку
 
 gP.width = innerWidth; //Сохранем четкость изображения, выставив полную ширину экрана
 gP.height = innerHeight;
-var width1 = 900;
-var height1 = 900;
-var corner_x = (innerWidth - 900) / 2;
-var corner_y = (innerHeight - 900) / 2;
+width1 = 20 * size;
+
  var playing = setInterval(function(){
-	if (apple[0] + size >= width1 || apple[1] + size >= height1){
+	if (apple[0] + size >= width1 || apple[1] + size >= width1){
 		newApple();
 	}
 	g.fillStyle = "white";
-	g.fillRect(corner_x + 1,corner_y + 1, width1, height1);
+	g.fillRect(corner_x + 1,corner_y + 1, width1, width1);
 	g.fillStyle = "red";
 	g.fillRect(apple[0] + corner_x, apple[1] + corner_y, size, size);
 	g.fillStyle = "black";
-	g.fillRect(corner_x - 1,corner_y - 1, 2, height1 +2);
+	g.fillRect(corner_x - 1,corner_y - 1, 2, width1 +2);
 	g.fillRect(corner_x - 1, corner_y - 1, width1 + 2, 2);
-	g.fillRect(corner_x + width1 -1, corner_y -1, 2, height1 +2);
-	g.fillRect(corner_x - 1, corner_y + height1 -1, width1 +2, 2);
+	g.fillRect(corner_x + width1 -1, corner_y -1, 2, width1 +2);
+	g.fillRect(corner_x - 1, corner_y + width1 -1, width1 +2, 2);
 	g.fillStyle = "blue";
 	sBody.forEach(function(el, i){
 		if (el.x == sBody[sBody.length - 1].x && el.y == sBody[sBody.length - 1].y && i < sBody.length - 1){
@@ -64,14 +66,14 @@ var corner_y = (innerHeight - 900) / 2;
 		if (direction == 'right' && part.x > (Math.round(width1 / size) - 1) * size){
 			part.x = 0;
 		}
-		if (direction == 'down' && part.y > (Math.round(height1 / size) - 1) * size){
+		if (direction == 'down' && part.y > (Math.round(width1 / size) - 1) * size){
 			part.y = 0;
 		}
 		if (direction == 'left' && part.x < 0){
 			part.x = (Math.round(width1 / size) - 1) * size;
 		}
 		if (direction == 'up' && part.y < 0){
-			part.y = (Math.round(height1 / size) - 1) * size;
+			part.y = (Math.round(width1 / size) - 1) * size;
 		} 
 		if (part.x == apple[0] && part.y == apple[1]){
 			newApple();
