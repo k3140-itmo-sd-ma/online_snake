@@ -3,7 +3,7 @@ var random = function (min, max) {k = Math.floor(Math.random() * (max - min) + m
 	}
 
 var newApple = function () {
-	apple = [random(0, (innerHeight - 100) - size),random(0, (innerHeight - 100) - size)];
+	apple = [random(0, innerHeight - size),random(0, innerHeight - size)];
 	}
 
 var	newB = function () {
@@ -25,12 +25,8 @@ gP.width = innerWidth; //Сохранем четкость изображени�
 gP.height = innerHeight;
 width1 = 20 * size;
 
- var playing = setInterval(function(){
- 	width1 = (innerHeight - 100);
- 	size = Math.round(width1 / 20);
- 	width1 = 20 * size;
- 	corner_x = (innerWidth - (innerHeight - 100)) / 2;
-	corner_y = (innerHeight - (innerHeight - 100)) / 2;
+var playing = setInterval(function(){
+ 	
 	if (apple[0] + size >= width1 || apple[1] + size >= width1){
 		newApple();
 	}
