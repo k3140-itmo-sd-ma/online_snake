@@ -9,15 +9,15 @@ var newApple = function () {
 var	newB = function () {
 	sBody = [{x: 3 * size,y: 3 * size}, {x: 4 * size, y: 3 * size}, {x: 5 * size,y: 3 * size}];
 	}
+
 var score = 0;
-var width1 = (innerHeight - 100);
 var width1 = (innerHeight - 100);
 var corner_x = (innerWidth - (innerHeight - 100)) / 2;
 var corner_y = (innerHeight - (innerHeight - 100)) / 2;
 var gP = document.getElementById('gP'), //Достаем canvas
 	g = gP.getContext('2d'), //Получаем "контакс" (методы для рисования в canvas) //Сохраняем для удобства
 	sBody = null, //Начально тело змейки - два элемента
-	direction = 'right'
+	direction = 'right';
 	apple = null, //Яблоко, массив, 0 элемент - x, 1 элемнт - y
 	size = Math.round(width1 / 20), newB(); newApple(); //Создаем змейку
 
@@ -26,9 +26,15 @@ gP.height = innerHeight;
 width1 = 20 * size;
 
  var playing = setInterval(function(){
+ 	width1 = (innerHeight - 100);
+ 	size = Math.round(width1 / 20);
+ 	width1 = 20 * size;
+ 	corner_x = (innerWidth - (innerHeight - 100)) / 2;
+	corner_y = (innerHeight - (innerHeight - 100)) / 2;
 	if (apple[0] + size >= width1 || apple[1] + size >= width1){
 		newApple();
 	}
+	g.clearRect(0,0,gP.width,gP.height);
 	g.fillStyle = "white";
 	g.fillRect(corner_x + 1,corner_y + 1, width1, width1);
 	g.fillStyle = "red";
