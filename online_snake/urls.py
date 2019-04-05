@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', views.main, name='main'),
-    path('accounts', include('accounts.urls', namespace='accounts')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
     path('main/', views.main, name='main'),
     path('snake/', include('snake.urls', namespace='snake')),
     path('tic_tac_toe/', include('tic_tac_toe.urls', namespace='tic_tac_toe')),

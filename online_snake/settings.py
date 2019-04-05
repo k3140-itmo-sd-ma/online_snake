@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'tic_tac_toe',
+    'snake',
     'widget_tweaks',
 ]
 

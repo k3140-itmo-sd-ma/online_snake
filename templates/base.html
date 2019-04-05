@@ -23,6 +23,8 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">Online Games</a>
         {% if user.is_authenticated %}
+        <a href="{% url 'tic_tac_toe:play' %}">Tic-tac-toe<br></a> |
+        <a href="{% url 'snake:play' %}">Snake</a>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto"></ul>
           <span class="navbar-text">
@@ -31,6 +33,9 @@
             <a href="{% url 'accounts:logout' %}">Logout</a>
           </span>
         </div>
+        {% else %}
+        <a href="{% url 'accounts:login' %}">Login</a> |
+        <a href="{% url 'accounts:register' %}">Signin</a>
         {% endif %}
       </nav>
 

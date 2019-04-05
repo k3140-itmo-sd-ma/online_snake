@@ -11,9 +11,9 @@ var	newB = function () {
 	}
 
 var score = 0;
-var width1 = (innerHeight - 100);
-var corner_x = (innerWidth - (innerHeight - 100)) / 2;
-var corner_y = (innerHeight - (innerHeight - 100)) / 2;
+var width1 = (innerHeight - 200);
+var corner_x = (innerWidth - width1) / 2;
+var corner_y = (innerHeight - width1) / 2;
 var gP = document.getElementById('gP'), //Достаем canvas
 	g = gP.getContext('2d'), //Получаем "контакс" (методы для рисования в canvas) //Сохраняем для удобства
 	sBody = null, //Начально тело змейки - два элемента
@@ -26,7 +26,7 @@ gP.height = innerHeight;
 width1 = 20 * size;
 
 var playing = setInterval(function(){
- 	
+
 	if (apple[0] + size >= width1 || apple[1] + size >= width1){
 		newApple();
 	}
